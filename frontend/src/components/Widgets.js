@@ -104,7 +104,7 @@ export const FloatingChatButton = () => {
       href="https://wa.me/919999999999?text=Hi, I need help with Trust Vault"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-4 right-4 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+      className="fixed bottom-20 right-4 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
       data-testid="whatsapp-button"
     >
       <svg viewBox="0 0 24 24" className="w-7 h-7 text-white fill-current">
