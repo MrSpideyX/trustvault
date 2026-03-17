@@ -37,19 +37,14 @@ export const Layout = ({ children }) => {
         <div className="max-w-[1400px] mx-auto px-4 md:px-8 h-20 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3" data-testid="logo-link">
-            <img 
-              src="https://customer-assets.emergentagent.com/job_gaming-hub-471/artifacts/xqaigfjd_trustvault%20logo.png" 
-              alt="Trust Vault" 
-              className="h-14 w-auto object-contain"
-            />
-            <span className="text-xl font-bold tracking-tight hidden sm:block bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent">TRUST VAULT</span>
+            <span className="text-xl font-bold tracking-tight bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent">TRUST VAULT</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6">
             <Link 
               to="/products" 
-              className={`text-sm uppercase tracking-wider transition-colors ${isActive('/products') ? 'text-[#00F0FF]' : 'text-white/70 hover:text-white'}`}
+              className={`px-5 py-2 rounded-full text-sm font-medium transition-all border ${isActive('/products') ? 'bg-[#00F0FF] text-black border-[#00F0FF]' : 'border-white/20 text-white/70 hover:text-white hover:border-white/40'}`}
               data-testid="nav-products"
             >
               All Products
