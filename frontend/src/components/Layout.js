@@ -38,10 +38,12 @@ export const Layout = ({ children }) => {
         <div className="max-w-[1400px] mx-auto px-4 md:px-8 h-20 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2" data-testid="logo-link">
-            <div className="w-10 h-10 bg-[#00F0FF] flex items-center justify-center">
-              <span className="text-black font-bold text-xl">G</span>
-            </div>
-            <span className="text-xl font-bold tracking-tight hidden sm:block">GAMING HUB</span>
+            <img 
+              src="https://customer-assets.emergentagent.com/job_gaming-hub-471/artifacts/xqaigfjd_trustvault%20logo.png" 
+              alt="Trust Vault" 
+              className="h-12 w-auto"
+            />
+            <span className="text-xl font-bold tracking-tight hidden sm:block">TRUST VAULT</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -215,7 +217,7 @@ export const Layout = ({ children }) => {
         <div className="max-w-[1400px] mx-auto px-4 md:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>
-              <h4 className="font-bold mb-4">GAMING HUB</h4>
+              <h4 className="font-bold mb-4">TRUST VAULT</h4>
               <p className="text-sm text-white/50">Your trusted source for premium digital game accounts.</p>
             </div>
             <div>
@@ -241,7 +243,7 @@ export const Layout = ({ children }) => {
             </div>
           </div>
           <div className="mt-12 pt-8 border-t border-white/5 text-center text-sm text-white/30">
-            © 2024 Gaming Hub. All rights reserved.
+            © 2024 Trust Vault. All rights reserved.
           </div>
         </div>
       </footer>

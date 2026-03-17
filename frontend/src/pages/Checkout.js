@@ -84,7 +84,7 @@ export const Checkout = () => {
         amount: amount,
         currency: currency,
         order_id: razorpay_order_id,
-        name: 'Gaming Hub',
+        name: 'Trust Vault',
         description: 'Game Account Purchase',
         handler: async (response) => {
           try {

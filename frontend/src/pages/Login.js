@@ -37,11 +37,13 @@ export const Login = () => {
     <div className="min-h-screen flex items-center justify-center py-24 px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <Link to="/" className="inline-flex items-center gap-2 mb-6">
-            <div className="w-12 h-12 bg-[#00F0FF] flex items-center justify-center">
-              <span className="text-black font-bold text-2xl">G</span>
-            </div>
-          </Link>
+          <Link to="/" className="flex items-center gap-2" data-testid="logo-link">
+          <img 
+            src="https://customer-assets.emergentagent.com/job_gaming-hub-471/artifacts/xqaigfjd_trustvault%20logo.png" 
+            alt="Trust Vault" 
+            className="h-10 w-auto"
+          />
+        </Link>
           <h1 className="text-3xl font-bold mb-2">Welcome Back</h1>
           <p className="text-white/50">Sign in to your account</p>
         </div>

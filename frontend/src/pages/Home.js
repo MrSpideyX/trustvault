@@ -116,7 +116,7 @@ export const Home = () => {
           <div className="text-center mb-16">
             <p className="text-[#00F0FF] text-sm uppercase tracking-widest font-medium mb-4">Why Choose Us</p>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-              THE GAMING HUB<br />ADVANTAGE
+              THE TRUST VAULT<br />ADVANTAGE
             </h2>
           </div>
           
@@ -190,7 +190,7 @@ export const Home = () => {
             READY TO START<br />YOUR JOURNEY?
           </h2>
           <p className="text-lg text-white/70 max-w-xl mx-auto mb-8">
-            Join thousands of gamers who trust Gaming Hub for their digital game accounts.
+            Join thousands of gamers who trust Trust Vault for their digital game accounts.
           </p>
           <Link to="/register">
             <Button 

@@ -59,9 +59,11 @@ export const AdminLayout = ({ children }) => {
       {/* Mobile Header */}
       <div className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-[#0a0a0a] border-b border-white/5 z-50 flex items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-[#00F0FF] flex items-center justify-center">
-            <span className="text-black font-bold">G</span>
-          </div>
+          <img 
+            src="https://customer-assets.emergentagent.com/job_gaming-hub-471/artifacts/xqaigfjd_trustvault%20logo.png" 
+            alt="Trust Vault" 
+            className="h-8 w-auto"
+          />
           <span className="font-bold">Admin</span>
         </Link>
         <button onClick={() => setSidebarOpen(!sidebarOpen)} className="p-2">
@@ -73,11 +75,13 @@ export const AdminLayout = ({ children }) => {
       <aside className={`fixed top-0 left-0 h-full w-64 bg-[#0a0a0a] border-r border-white/5 z-40 transform transition-transform lg:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="p-6 border-b border-white/5 hidden lg:block">
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-[#00F0FF] flex items-center justify-center">
-              <span className="text-black font-bold text-xl">G</span>
-            </div>
+            <img 
+              src="https://customer-assets.emergentagent.com/job_gaming-hub-471/artifacts/xqaigfjd_trustvault%20logo.png" 
+              alt="Trust Vault" 
+              className="h-10 w-auto"
+            />
             <div>
-              <span className="font-bold block">GAMING HUB</span>
+              <span className="font-bold block">TRUST VAULT</span>
               <span className="text-xs text-white/50">Admin Panel</span>
             </div>
           </Link>
