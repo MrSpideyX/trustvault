@@ -91,13 +91,13 @@ export const Home = () => {
               </div>
             </div>
             
-            {/* Hero Image */}
+            {/* Hero Image - Resident Evil Style */}
             <div className="relative hidden lg:block animate-fade-in-up stagger-2">
               <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-r from-[#00F0FF]/20 to-[#7000FF]/20 blur-3xl" />
+                <div className="absolute -inset-4 bg-gradient-to-r from-[#8B0000]/30 to-[#7000FF]/20 blur-3xl" />
                 <img
-                  src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800"
-                  alt="Gaming Setup"
+                  src="https://images.unsplash.com/photo-1721884258632-a93d386ababf?w=800"
+                  alt="Resident Evil Game"
                   className="relative rounded-lg border border-white/10"
                 />
               </div>
@@ -108,33 +108,6 @@ export const Home = () => {
         {/* Background Glow */}
         <div className="absolute top-1/2 left-1/4 w-[600px] h-[600px] bg-[#00F0FF]/5 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-[#7000FF]/5 rounded-full blur-[100px] pointer-events-none" />
-      </section>
-
-      {/* Features Section */}
-      <section className="py-24 md:py-32 bg-[#0a0a0a]">
-        <div className="max-w-[1400px] mx-auto px-4 md:px-8">
-          <div className="text-center mb-16">
-            <p className="text-[#00F0FF] text-sm uppercase tracking-widest font-medium mb-4">Why Choose Us</p>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-              THE TRUST VAULT<br />ADVANTAGE
-            </h2>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.map((feature, index) => (
-              <div 
-                key={index}
-                className="group p-8 bg-[#121212] border border-white/5 rounded-xl hover:bg-white/5 transition-all duration-300"
-              >
-                <div className="w-12 h-12 rounded-lg bg-[#00F0FF]/10 text-[#00F0FF] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                <p className="text-white/50 leading-relaxed">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* Featured Products Section */}
@@ -183,7 +156,34 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Features Section - Why Choose Us */}
+      <section className="py-24 md:py-32 bg-[#0a0a0a]">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-8">
+          <div className="text-center mb-16">
+            <p className="text-[#00F0FF] text-sm uppercase tracking-widest font-medium mb-4">Why Choose Us</p>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+              THE TRUST VAULT<br />ADVANTAGE
+            </h2>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {features.map((feature, index) => (
+              <div 
+                key={index}
+                className="group p-8 bg-[#121212] border border-white/5 rounded-xl hover:bg-white/5 transition-all duration-300"
+              >
+                <div className="w-12 h-12 rounded-lg bg-[#00F0FF]/10 text-[#00F0FF] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                <p className="text-white/50 leading-relaxed">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section - Ready to Start */}
       <section className="py-24 md:py-32 bg-gradient-to-r from-[#00F0FF]/10 to-[#7000FF]/10 relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 md:px-8 text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
@@ -201,8 +201,6 @@ export const Home = () => {
             </Button>
           </Link>
         </div>
-        
-        {/* Background removed noise texture */}
       </section>
     </div>
   );

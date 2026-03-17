@@ -52,7 +52,7 @@ export const Layout = ({ children }) => {
               className={`text-sm uppercase tracking-wider transition-colors ${isActive('/products') ? 'text-[#00F0FF]' : 'text-white/70 hover:text-white'}`}
               data-testid="nav-products"
             >
-              Store
+              All Products
             </Link>
             {user && (
               <Link 
@@ -187,7 +187,7 @@ export const Layout = ({ children }) => {
               className="block text-sm uppercase tracking-wider py-2"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Store
+              All Products
             </Link>
             {user && (
               <Link 
