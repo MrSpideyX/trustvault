@@ -9,6 +9,18 @@ import axios from 'axios';
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
+// Platform logos mapping
+const platformLogos = {
+  'Steam': 'https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg',
+  'Epic': 'https://upload.wikimedia.org/wikipedia/commons/3/31/Epic_Games_logo.svg',
+  'PlayStation': 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Playstation_logo_colour.svg',
+  'Xbox': 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Xbox_one_logo.svg',
+  'Nintendo': 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Nintendo.svg',
+  'Origin': 'https://upload.wikimedia.org/wikipedia/commons/f/f2/Origin.svg',
+  'Ubisoft': 'https://upload.wikimedia.org/wikipedia/commons/7/78/Ubisoft_logo.svg',
+  'Battle.net': 'https://upload.wikimedia.org/wikipedia/commons/2/23/Blizzard_Entertainment_Logo_2015.svg'
+};
+
 export const ProductCard = ({ product, onWishlistChange }) => {
   const { formatPrice } = useCurrency();
   const { addToCart } = useCart();
@@ -95,14 +107,27 @@ export const ProductCard = ({ product, onWishlistChange }) => {
           className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
         />
         
-        {/* Platform Badge */}
+        {/* Platform Logo */}
         <div className="absolute top-3 left-3">
-          <span className={`px-2.5 py-1 text-xs font-bold uppercase tracking-wider rounded-full ${
-            product.platform === 'Steam' ? 'bg-[#1b2838] text-white' : 
-            product.platform === 'Epic' ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-700'
-          }`}>
-            {product.platform}
-          </span>
+          <div className="w-10 h-10 rounded-lg bg-white/95 backdrop-blur-sm shadow-lg flex items-center justify-center p-2">
+            {platformLogos[product.platform] ? (
+              <img 
+                src={platformLogos[product.platform]} 
+                alt={product.platform}
+                className="w-full h-full object-contain"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'block';
+                }}
+              />
+            ) : null}
+            <span 
+              className="text-xs font-bold text-gray-800 hidden"
+              style={{ display: platformLogos[product.platform] ? 'none' : 'block' }}
+            >
+              {product.platform?.substring(0, 2).toUpperCase()}
+            </span>
+          </div>
         </div>
 
         {/* Stock Badge */}
