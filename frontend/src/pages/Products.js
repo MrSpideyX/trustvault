@@ -23,7 +23,7 @@ export const Products = () => {
   const [platform, setPlatform] = useState(searchParams.get('platform') || '');
   const [showFilters, setShowFilters] = useState(false);
 
-  const platforms = ['Steam', 'Epic', 'PlayStation', 'Xbox', 'Nintendo'];
+  const platforms = ['Steam', 'Epic', 'PlayStation', 'Xbox', 'Nintendo', 'Origin', 'Ubisoft', 'Battle.net'];
 
   useEffect(() => {
     const fetchProducts = async () => {

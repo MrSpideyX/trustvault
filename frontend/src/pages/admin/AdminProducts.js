@@ -46,7 +46,7 @@ export const AdminProducts = () => {
     featured: false
   });
 
-  const platforms = ['Steam', 'Epic', 'PlayStation', 'Xbox', 'Nintendo'];
+  const platforms = ['Steam', 'Epic', 'PlayStation', 'Xbox', 'Nintendo', 'Origin', 'Ubisoft', 'Battle.net'];
 
   const getHeaders = () => {
     return token ? { Authorization: `Bearer ${token}` } : {};

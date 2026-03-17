@@ -229,8 +229,8 @@ export const Layout = ({ children }) => {
             <div>
               <h4 className="text-sm font-bold uppercase tracking-wider mb-4 text-white/50">Support</h4>
               <ul className="space-y-2 text-sm">
-                <li><span className="text-white/70">Contact Us</span></li>
-                <li><span className="text-white/70">FAQ</span></li>
+                <li><Link to="/contact" className="text-white/70 hover:text-white transition-colors">Contact Us</Link></li>
+                <li><Link to="/faq" className="text-white/70 hover:text-white transition-colors">FAQ</Link></li>
               </ul>
             </div>
             <div>

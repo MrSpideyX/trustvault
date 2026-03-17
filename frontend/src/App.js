@@ -17,6 +17,8 @@ import Checkout from './pages/Checkout';
 import { Orders, OrderDetail } from './pages/Orders';
 import Wishlist from './pages/Wishlist';
 import Dashboard from './pages/Dashboard';
+import Contact from './pages/Contact';
+import FAQ from './pages/FAQ';
 import { AdminLayout, AdminDashboard } from './pages/admin/AdminLayout';
 import AdminProducts from './pages/admin/AdminProducts';
 import AdminOrders from './pages/admin/AdminOrders';
@@ -64,6 +66,8 @@ const AppRouter = () => {
       <Route path="/products/:productId" element={<Layout><ProductDetail /></Layout>} />
       <Route path="/login" element={<Layout><Login /></Layout>} />
       <Route path="/register" element={<Layout><Register /></Layout>} />
+      <Route path="/contact" element={<Layout><Contact /></Layout>} />
+      <Route path="/faq" element={<Layout><FAQ /></Layout>} />
 
       {/* Protected Routes */}
       <Route path="/cart" element={

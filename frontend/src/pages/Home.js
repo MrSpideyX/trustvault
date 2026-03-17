@@ -96,7 +96,7 @@ export const Home = () => {
               <div className="relative">
                 <div className="absolute -inset-4 bg-gradient-to-r from-[#00F0FF]/20 to-[#7000FF]/20 blur-3xl" />
                 <img
-                  src="https://images.unsplash.com/photo-1613974089244-916ec6dda17c?w=800"
+                  src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800"
                   alt="Gaming Setup"
                   className="relative rounded-lg border border-white/10"
                 />
