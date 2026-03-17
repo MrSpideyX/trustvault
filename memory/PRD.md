@@ -1,7 +1,7 @@
-# Gaming Hub - Digital Game Accounts E-Commerce Platform
+# Trust Vault - Digital Game Accounts E-Commerce Platform
 
 ## Original Problem Statement
-Build a digital gaming products e-commerce website to sell game accounts (Resident Evil, Crimson Desert, God of War for Steam, etc.) for a global audience with INR/USD currency support.
+Build a digital gaming products e-commerce website called "Trust Vault" to sell game accounts (Resident Evil, Crimson Desert, God of War for Steam, etc.) for a global audience with INR/USD currency support.
 
 ## User Personas
 1. **Gamer Buyers** - Global audience looking to purchase premium game accounts at competitive prices
@@ -17,6 +17,7 @@ Build a digital gaming products e-commerce website to sell game accounts (Reside
 - Wishlist functionality
 - Discount codes
 - Manual delivery via email
+- Clean, white theme with purple accents
 
 ## Architecture
 ### Tech Stack
@@ -42,9 +43,12 @@ Build a digital gaming products e-commerce website to sell game accounts (Reside
 - Login, Register, Auth Callback
 - Cart, Checkout, Orders, Wishlist
 - Dashboard
+- Contact, FAQ
 - Admin: Dashboard, Products, Orders, Discounts, Users
 
-## What's Been Implemented (Jan 2026)
+## What's Been Implemented
+
+### Jan 2026 - Initial MVP
 - ✅ Full backend API with all CRUD endpoints
 - ✅ User authentication (JWT + Google OAuth)
 - ✅ Product catalog with search/filter
@@ -56,10 +60,25 @@ Build a digital gaming products e-commerce website to sell game accounts (Reside
 - ✅ Admin panel (Products, Orders, Discounts, Users)
 - ✅ Currency toggle (INR/USD)
 - ✅ Responsive design with gaming aesthetic
+- ✅ Contact Us and FAQ pages
+- ✅ Live Sales Notification widget (MOCKED data)
+- ✅ Trust badges
+- ✅ Expandable social media contact button
+
+### March 2026 - Theme Update
+- ✅ Complete site-wide white theme migration (from dark theme)
+- ✅ Updated all user pages: Dashboard, Orders, Wishlist
+- ✅ Updated all admin pages: Layout, Products, Orders, Discounts, Users
+- ✅ Consistent purple accent colors throughout
+- ✅ Testing completed - 100% pass rate on theme consistency
 
 ## Test Results
-- Backend: 100% pass rate (16/16 endpoints)
-- Frontend: 90% functional (core features working)
+- Backend: 100% pass rate (all endpoints working)
+- Frontend: 100% pass rate (white theme consistently applied)
+- Test credentials: test@example.com / test123 (admin access)
+
+## Mocked Components
+- **Live Sales Notification**: Uses fake names, cities, and product data for social proof widget
 
 ## Prioritized Backlog
 
@@ -70,11 +89,14 @@ Build a digital gaming products e-commerce website to sell game accounts (Reside
 - Add sample product images from Unsplash for games
 - Email notification system for order confirmation
 - Webhook handling for Razorpay payment updates
+- Automated digital product delivery
 
 ### P2 (Nice to Have)
+- Flash Sale Countdown Timer widget
+- Testimonials Carousel for customer reviews
+- "Low Stock" badges on products
 - Order tracking status updates
 - User profile management
-- Product categories/tags
 - Related products recommendations
 - Analytics dashboard
 
