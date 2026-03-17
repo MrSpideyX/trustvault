@@ -1,34 +1,95 @@
-.App-logo {
-    height: 40vmin;
+/* Additional App Styles */
+
+/* Hero Section */
+.hero-bg {
+    background: linear-gradient(to right, #000000, #1a1a1a);
+    position: relative;
+}
+
+.hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(0, 240, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(112, 0, 255, 0.08) 0%, transparent 50%);
     pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+/* Admin Sidebar */
+.admin-sidebar {
+    @apply w-64 min-h-screen bg-[#0a0a0a] border-r border-white/5;
 }
 
-.App-link {
-    color: #61dafb;
+.admin-sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 transition-colors;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.admin-sidebar-link.active {
+    @apply text-[#00F0FF] bg-[#00F0FF]/10 border-r-2 border-[#00F0FF];
+}
+
+/* Rating Stars */
+.star-rating {
+    @apply flex gap-1;
+}
+
+.star-rating .star {
+    @apply text-[#FFD600] fill-[#FFD600];
+}
+
+.star-rating .star.empty {
+    @apply text-white/20 fill-transparent;
+}
+
+/* Badge Styles */
+.badge-steam {
+    @apply bg-[#1b2838] text-white;
+}
+
+.badge-epic {
+    @apply bg-[#2a2a2a] text-white;
+}
+
+.badge-in-stock {
+    @apply bg-[#00FF94]/20 text-[#00FF94];
+}
+
+.badge-out-of-stock {
+    @apply bg-[#FF0055]/20 text-[#FF0055];
+}
+
+/* Order Status */
+.status-pending {
+    @apply bg-[#FFD600]/20 text-[#FFD600];
+}
+
+.status-completed {
+    @apply bg-[#00FF94]/20 text-[#00FF94];
+}
+
+.status-cancelled {
+    @apply bg-[#FF0055]/20 text-[#FF0055];
+}
+
+/* Checkout Form */
+.checkout-form input,
+.checkout-form select {
+    @apply bg-black/50 border-white/10 focus:border-[#00F0FF] text-white placeholder:text-white/30 h-12 rounded-md transition-all focus:ring-1 focus:ring-[#00F0FF]/50;
+}
+
+/* Loading Skeleton */
+.skeleton {
+    @apply bg-white/5 animate-pulse rounded;
+}
+
+/* Toast Customization */
+[data-sonner-toast] {
+    @apply bg-[#0a0a0a] border-white/10 text-white;
 }
