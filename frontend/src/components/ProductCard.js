@@ -140,21 +140,21 @@ export const ProductCard = ({ product, onWishlistChange }) => {
       </div>
 
       {/* Content */}
-      <div className="p-4 space-y-2">
+      <div className="p-3 space-y-1.5">
         <p className="text-xs text-white/50 uppercase tracking-wider">{product.game_title}</p>
-        <h3 className="font-bold text-lg leading-tight line-clamp-2">{product.name}</h3>
+        <h3 className="font-bold text-sm leading-tight line-clamp-2">{product.name}</h3>
         
         {/* Rating */}
         {product.review_count > 0 && (
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5">
             <div className="flex">{renderStars(product.avg_rating)}</div>
             <span className="text-xs text-white/50">({product.review_count})</span>
           </div>
         )}
         
         {/* Price */}
-        <div className="pt-2">
-          <span className="text-xl font-bold text-[#00F0FF]">
+        <div className="pt-1">
+          <span className="text-lg font-bold text-[#00F0FF]">
             {formatPrice(product.price_inr, product.price_usd)}
           </span>
         </div>
