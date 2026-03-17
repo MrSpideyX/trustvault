@@ -59,13 +59,11 @@ export const AdminLayout = ({ children }) => {
       {/* Mobile Header */}
       <div className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-[#0a0a0a] border-b border-white/5 z-50 flex items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full overflow-hidden border border-[#FFD700] bg-black flex items-center justify-center">
-            <img 
-              src="https://customer-assets.emergentagent.com/job_gaming-hub-471/artifacts/xqaigfjd_trustvault%20logo.png" 
-              alt="Trust Vault" 
-              className="w-full h-full object-cover rounded-full"
-            />
-          </div>
+          <img 
+            src="https://customer-assets.emergentagent.com/job_gaming-hub-471/artifacts/xqaigfjd_trustvault%20logo.png" 
+            alt="Trust Vault" 
+            className="h-8 w-auto object-contain"
+          />
           <span className="font-bold">Admin</span>
         </Link>
         <button onClick={() => setSidebarOpen(!sidebarOpen)} className="p-2">
@@ -77,13 +75,11 @@ export const AdminLayout = ({ children }) => {
       <aside className={`fixed top-0 left-0 h-full w-64 bg-[#0a0a0a] border-r border-white/5 z-40 transform transition-transform lg:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         <div className="p-6 border-b border-white/5 hidden lg:block">
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-[#FFD700] shadow-[0_0_15px_rgba(255,215,0,0.3)] bg-black flex items-center justify-center">
-              <img 
-                src="https://customer-assets.emergentagent.com/job_gaming-hub-471/artifacts/xqaigfjd_trustvault%20logo.png" 
-                alt="Trust Vault" 
-                className="w-full h-full object-cover rounded-full"
-              />
-            </div>
+            <img 
+              src="https://customer-assets.emergentagent.com/job_gaming-hub-471/artifacts/xqaigfjd_trustvault%20logo.png" 
+              alt="Trust Vault" 
+              className="h-12 w-auto object-contain"
+            />
             <div>
               <span className="font-bold block bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent">TRUST VAULT</span>
               <span className="text-xs text-white/50">Admin Panel</span>

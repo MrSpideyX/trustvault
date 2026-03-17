@@ -38,13 +38,11 @@ export const Layout = ({ children }) => {
         <div className="max-w-[1400px] mx-auto px-4 md:px-8 h-20 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3" data-testid="logo-link">
-            <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#FFD700] shadow-[0_0_15px_rgba(255,215,0,0.4)] bg-black/50 flex items-center justify-center p-1">
-              <img 
-                src="https://customer-assets.emergentagent.com/job_gaming-hub-471/artifacts/xqaigfjd_trustvault%20logo.png" 
-                alt="Trust Vault" 
-                className="w-full h-full object-cover rounded-full"
-              />
-            </div>
+            <img 
+              src="https://customer-assets.emergentagent.com/job_gaming-hub-471/artifacts/xqaigfjd_trustvault%20logo.png" 
+              alt="Trust Vault" 
+              className="h-14 w-auto object-contain"
+            />
             <span className="text-xl font-bold tracking-tight hidden sm:block bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent">TRUST VAULT</span>
           </Link>
 
