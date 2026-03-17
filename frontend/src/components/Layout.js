@@ -30,8 +30,7 @@ export const Layout = ({ children }) => {
 
   return (
     <div className="min-h-screen bg-[#050505] text-white">
-      {/* Noise Overlay */}
-      <div className="noise-overlay" />
+      {/* Noise Overlay - Removed */}
 
       {/* Header */}
       <header className="fixed top-0 w-full z-40 bg-black/50 backdrop-blur-xl border-b border-white/5">

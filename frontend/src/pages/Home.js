@@ -202,7 +202,7 @@ export const Home = () => {
           </Link>
         </div>
         
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03]" />
+        {/* Background removed noise texture */}
       </section>
     </div>
   );
