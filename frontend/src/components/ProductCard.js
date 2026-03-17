@@ -76,7 +76,7 @@ export const ProductCard = ({ product, onWishlistChange }) => {
     return [...Array(5)].map((_, i) => (
       <Star
         key={i}
-        className={`w-3 h-3 ${i < Math.round(rating) ? 'text-[#FFD600] fill-[#FFD600]' : 'text-white/20'}`}
+        className={`w-3 h-3 ${i < Math.round(rating) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`}
       />
     ));
   };
@@ -84,45 +84,42 @@ export const ProductCard = ({ product, onWishlistChange }) => {
   return (
     <Link 
       to={`/products/${product.product_id}`}
-      className="product-card group relative bg-[#0a0a0a] border border-white/5 overflow-hidden block"
+      className="product-card group relative bg-white border border-gray-200 rounded-xl overflow-hidden block hover:shadow-xl transition-all duration-300"
       data-testid={`product-card-${product.product_id}`}
     >
       {/* Image Container */}
-      <div className="relative aspect-[3/4] overflow-hidden">
+      <div className="relative aspect-[3/4] overflow-hidden bg-gray-100">
         <img
           src={product.image_url || 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400'}
           alt={product.name}
-          className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-500 scale-100 group-hover:scale-105"
+          className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
         />
         
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-        
         {/* Platform Badge */}
-        <div className="absolute top-4 left-4">
-          <span className={`px-3 py-1 text-xs font-bold uppercase tracking-wider rounded ${
-            product.platform === 'Steam' ? 'bg-[#1b2838]' : 
-            product.platform === 'Epic' ? 'bg-[#2a2a2a]' : 'bg-white/20'
+        <div className="absolute top-3 left-3">
+          <span className={`px-2.5 py-1 text-xs font-bold uppercase tracking-wider rounded-full ${
+            product.platform === 'Steam' ? 'bg-[#1b2838] text-white' : 
+            product.platform === 'Epic' ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-700'
           }`}>
             {product.platform}
           </span>
         </div>
 
         {/* Stock Badge */}
-        <div className="absolute top-4 right-4">
-          <span className={`px-3 py-1 text-xs font-bold uppercase tracking-wider rounded ${
-            product.stock > 0 ? 'bg-[#00FF94]/20 text-[#00FF94]' : 'bg-[#FF0055]/20 text-[#FF0055]'
+        <div className="absolute top-3 right-3">
+          <span className={`px-2.5 py-1 text-xs font-bold uppercase tracking-wider rounded-full ${
+            product.stock > 0 ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-600'
           }`}>
             {product.stock > 0 ? `${product.stock} In Stock` : 'Sold Out'}
           </span>
         </div>
 
         {/* Action Buttons */}
-        <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute bottom-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <button
             onClick={handleWishlist}
-            className={`w-10 h-10 rounded-full backdrop-blur-md flex items-center justify-center transition-colors ${
-              isWishlisted ? 'bg-[#FF0055] text-white' : 'bg-white/10 hover:bg-white/20 text-white'
+            className={`w-9 h-9 rounded-full backdrop-blur-md flex items-center justify-center transition-colors shadow-lg ${
+              isWishlisted ? 'bg-red-500 text-white' : 'bg-white/90 hover:bg-white text-gray-700'
             }`}
             data-testid={`wishlist-btn-${product.product_id}`}
           >
@@ -131,7 +128,7 @@ export const ProductCard = ({ product, onWishlistChange }) => {
           <button
             onClick={handleAddToCart}
             disabled={loading || product.stock <= 0}
-            className="w-10 h-10 rounded-full bg-[#00F0FF] text-black flex items-center justify-center hover:bg-[#00F0FF]/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-9 h-9 rounded-full bg-purple-600 text-white flex items-center justify-center hover:bg-purple-700 transition-colors shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
             data-testid={`add-cart-btn-${product.product_id}`}
           >
             {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <ShoppingCart className="w-4 h-4" />}
@@ -141,20 +138,20 @@ export const ProductCard = ({ product, onWishlistChange }) => {
 
       {/* Content */}
       <div className="p-3 space-y-1.5">
-        <p className="text-xs text-white/50 uppercase tracking-wider">{product.game_title}</p>
-        <h3 className="font-bold text-sm leading-tight line-clamp-2">{product.name}</h3>
+        <p className="text-xs text-gray-500 uppercase tracking-wider">{product.game_title}</p>
+        <h3 className="font-bold text-sm leading-tight line-clamp-2 text-gray-900">{product.name}</h3>
         
         {/* Rating */}
         {product.review_count > 0 && (
           <div className="flex items-center gap-1.5">
             <div className="flex">{renderStars(product.avg_rating)}</div>
-            <span className="text-xs text-white/50">({product.review_count})</span>
+            <span className="text-xs text-gray-500">({product.review_count})</span>
           </div>
         )}
         
         {/* Price */}
         <div className="pt-1">
-          <span className="text-lg font-bold text-[#00F0FF]">
+          <span className="text-lg font-bold text-purple-600">
             {formatPrice(product.price_inr, product.price_usd)}
           </span>
         </div>
