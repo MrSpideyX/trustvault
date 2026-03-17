@@ -159,40 +159,40 @@ export const AdminProducts = () => {
     <div>
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-bold mb-2">Products</h1>
-          <p className="text-white/50">Manage your game account inventory</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Products</h1>
+          <p className="text-gray-500">Manage your game account inventory</p>
         </div>
         <Dialog open={dialogOpen} onOpenChange={(open) => { setDialogOpen(open); if (!open) resetForm(); }}>
           <DialogTrigger asChild>
-            <Button className="bg-[#00F0FF] text-black font-bold" data-testid="add-product-btn">
+            <Button className="bg-purple-600 hover:bg-purple-700 text-white font-bold" data-testid="add-product-btn">
               <Plus className="w-4 h-4 mr-2" />
               Add Product
             </Button>
           </DialogTrigger>
-          <DialogContent className="bg-[#0a0a0a] border-white/10 max-w-2xl max-h-[90vh] overflow-y-auto">
+          <DialogContent className="bg-white border-gray-200 max-w-2xl max-h-[90vh] overflow-y-auto">
             <DialogHeader>
-              <DialogTitle>{editingProduct ? 'Edit Product' : 'Add New Product'}</DialogTitle>
+              <DialogTitle className="text-gray-900">{editingProduct ? 'Edit Product' : 'Add New Product'}</DialogTitle>
             </DialogHeader>
             <form onSubmit={handleSubmit} className="space-y-4 mt-4">
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label>Product Name</Label>
+                  <Label className="text-gray-700">Product Name</Label>
                   <Input
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="God of War Ragnarok Account"
-                    className="bg-black/50 border-white/10"
+                    className="bg-gray-50 border-gray-200 text-gray-900"
                     required
                     data-testid="product-name-input"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label>Game Title</Label>
+                  <Label className="text-gray-700">Game Title</Label>
                   <Input
                     value={formData.game_title}
                     onChange={(e) => setFormData({ ...formData, game_title: e.target.value })}
                     placeholder="God of War Ragnarok"
-                    className="bg-black/50 border-white/10"
+                    className="bg-gray-50 border-gray-200 text-gray-900"
                     required
                     data-testid="game-title-input"
                   />
@@ -200,12 +200,12 @@ export const AdminProducts = () => {
               </div>
 
               <div className="space-y-2">
-                <Label>Description</Label>
+                <Label className="text-gray-700">Description</Label>
                 <Textarea
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                   placeholder="Full game access with all DLCs..."
-                  className="bg-black/50 border-white/10 min-h-[100px]"
+                  className="bg-gray-50 border-gray-200 text-gray-900 min-h-[100px]"
                   required
                   data-testid="product-description-input"
                 />
@@ -213,12 +213,12 @@ export const AdminProducts = () => {
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label>Platform</Label>
+                  <Label className="text-gray-700">Platform</Label>
                   <Select value={formData.platform} onValueChange={(v) => setFormData({ ...formData, platform: v })}>
-                    <SelectTrigger className="bg-black/50 border-white/10" data-testid="platform-select">
+                    <SelectTrigger className="bg-gray-50 border-gray-200" data-testid="platform-select">
                       <SelectValue />
                     </SelectTrigger>
-                    <SelectContent className="bg-[#0a0a0a] border-white/10">
+                    <SelectContent className="bg-white border-gray-200">
                       {platforms.map((p) => (
                         <SelectItem key={p} value={p}>{p}</SelectItem>
                       ))}
@@ -226,13 +226,13 @@ export const AdminProducts = () => {
                   </Select>
                 </div>
                 <div className="space-y-2">
-                  <Label>Stock</Label>
+                  <Label className="text-gray-700">Stock</Label>
                   <Input
                     type="number"
                     value={formData.stock}
                     onChange={(e) => setFormData({ ...formData, stock: e.target.value })}
                     placeholder="10"
-                    className="bg-black/50 border-white/10"
+                    className="bg-gray-50 border-gray-200 text-gray-900"
                     required
                     min="0"
                     data-testid="stock-input"
@@ -242,13 +242,13 @@ export const AdminProducts = () => {
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label>Price (INR)</Label>
+                  <Label className="text-gray-700">Price (INR)</Label>
                   <Input
                     type="number"
                     value={formData.price_inr}
                     onChange={(e) => setFormData({ ...formData, price_inr: e.target.value })}
                     placeholder="2999"
-                    className="bg-black/50 border-white/10"
+                    className="bg-gray-50 border-gray-200 text-gray-900"
                     required
                     min="0"
                     step="0.01"
@@ -256,13 +256,13 @@ export const AdminProducts = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label>Price (USD)</Label>
+                  <Label className="text-gray-700">Price (USD)</Label>
                   <Input
                     type="number"
                     value={formData.price_usd}
                     onChange={(e) => setFormData({ ...formData, price_usd: e.target.value })}
                     placeholder="39.99"
-                    className="bg-black/50 border-white/10"
+                    className="bg-gray-50 border-gray-200 text-gray-900"
                     required
                     min="0"
                     step="0.01"
@@ -272,20 +272,20 @@ export const AdminProducts = () => {
               </div>
 
               <div className="space-y-2">
-                <Label>Image URL</Label>
+                <Label className="text-gray-700">Image URL</Label>
                 <Input
                   value={formData.image_url}
                   onChange={(e) => setFormData({ ...formData, image_url: e.target.value })}
                   placeholder="https://example.com/image.jpg"
-                  className="bg-black/50 border-white/10"
+                  className="bg-gray-50 border-gray-200 text-gray-900"
                   data-testid="image-url-input"
                 />
               </div>
 
-              <div className="flex items-center justify-between p-4 bg-black/30 rounded-lg">
+              <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                 <div>
-                  <Label>Featured Product</Label>
-                  <p className="text-sm text-white/50">Show on homepage</p>
+                  <Label className="text-gray-700">Featured Product</Label>
+                  <p className="text-sm text-gray-500">Show on homepage</p>
                 </div>
                 <Switch
                   checked={formData.featured}
@@ -295,10 +295,10 @@ export const AdminProducts = () => {
               </div>
 
               <div className="flex gap-4 pt-4">
-                <Button type="button" variant="outline" className="flex-1" onClick={() => setDialogOpen(false)}>
+                <Button type="button" variant="outline" className="flex-1 border-gray-200 text-gray-700" onClick={() => setDialogOpen(false)}>
                   Cancel
                 </Button>
-                <Button type="submit" disabled={submitting} className="flex-1 bg-[#00F0FF] text-black font-bold" data-testid="save-product-btn">
+                <Button type="submit" disabled={submitting} className="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-bold" data-testid="save-product-btn">
                   {submitting ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : null}
                   {editingProduct ? 'Update' : 'Create'} Product
                 </Button>
@@ -310,12 +310,12 @@ export const AdminProducts = () => {
 
       {/* Search */}
       <div className="relative mb-6">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-white/30" />
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
         <Input
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search products..."
-          className="pl-10 bg-[#0a0a0a] border-white/10"
+          className="pl-10 bg-white border-gray-200 text-gray-900"
           data-testid="search-products"
         />
       </div>
@@ -324,12 +324,12 @@ export const AdminProducts = () => {
       {loading ? (
         <div className="space-y-4">
           {[...Array(5)].map((_, i) => (
-            <div key={i} className="p-4 bg-[#121212] border border-white/5 rounded-lg">
+            <div key={i} className="p-4 bg-white border border-gray-200 rounded-xl">
               <div className="flex items-center gap-4">
-                <div className="skeleton w-16 h-20 rounded" />
+                <div className="w-16 h-20 rounded bg-gray-100 animate-pulse" />
                 <div className="flex-1 space-y-2">
-                  <div className="skeleton h-5 w-48" />
-                  <div className="skeleton h-4 w-32" />
+                  <div className="h-5 w-48 bg-gray-100 rounded animate-pulse" />
+                  <div className="h-4 w-32 bg-gray-100 rounded animate-pulse" />
                 </div>
               </div>
             </div>
@@ -338,9 +338,9 @@ export const AdminProducts = () => {
       ) : filteredProducts.length > 0 ? (
         <div className="space-y-4">
           {filteredProducts.map((product) => (
-            <div key={product.product_id} className="p-4 bg-[#121212] border border-white/5 rounded-lg" data-testid={`product-row-${product.product_id}`}>
+            <div key={product.product_id} className="p-4 bg-white border border-gray-200 rounded-xl" data-testid={`product-row-${product.product_id}`}>
               <div className="flex items-center gap-4">
-                <div className="w-16 h-20 rounded overflow-hidden flex-shrink-0 bg-white/5">
+                <div className="w-16 h-20 rounded overflow-hidden flex-shrink-0 bg-gray-100">
                   {product.image_url && (
                     <img src={product.image_url} alt={product.name} className="w-full h-full object-cover" />
                   )}
@@ -348,20 +348,20 @@ export const AdminProducts = () => {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <h3 className="font-bold text-lg truncate">{product.name}</h3>
-                      <p className="text-white/50 text-sm">{product.game_title} • {product.platform}</p>
+                      <h3 className="font-bold text-lg text-gray-900 truncate">{product.name}</h3>
+                      <p className="text-gray-500 text-sm">{product.game_title} • {product.platform}</p>
                       <div className="flex items-center gap-4 mt-2 text-sm">
-                        <span className="text-[#00F0FF]">₹{product.price_inr.toLocaleString()}</span>
-                        <span className="text-white/30">|</span>
-                        <span className="text-[#00F0FF]">${product.price_usd}</span>
-                        <span className="text-white/30">|</span>
-                        <span className={product.stock > 0 ? 'text-[#00FF94]' : 'text-[#FF0055]'}>
+                        <span className="text-purple-600 font-medium">₹{product.price_inr.toLocaleString()}</span>
+                        <span className="text-gray-300">|</span>
+                        <span className="text-purple-600 font-medium">${product.price_usd}</span>
+                        <span className="text-gray-300">|</span>
+                        <span className={product.stock > 0 ? 'text-green-600' : 'text-red-500'}>
                           {product.stock} in stock
                         </span>
                         {product.featured && (
                           <>
-                            <span className="text-white/30">|</span>
-                            <span className="text-[#FFD600]">Featured</span>
+                            <span className="text-gray-300">|</span>
+                            <span className="text-orange-500 font-medium">Featured</span>
                           </>
                         )}
                       </div>
@@ -371,7 +371,7 @@ export const AdminProducts = () => {
                         variant="outline"
                         size="sm"
                         onClick={() => handleEdit(product)}
-                        className="border-white/10"
+                        className="border-gray-200 text-gray-600 hover:bg-gray-50"
                         data-testid={`edit-product-${product.product_id}`}
                       >
                         <Pencil className="w-4 h-4" />
@@ -380,7 +380,7 @@ export const AdminProducts = () => {
                         variant="outline"
                         size="sm"
                         onClick={() => handleDelete(product.product_id)}
-                        className="border-white/10 text-[#FF0055] hover:bg-[#FF0055]/10"
+                        className="border-gray-200 text-red-500 hover:bg-red-50"
                         data-testid={`delete-product-${product.product_id}`}
                       >
                         <Trash2 className="w-4 h-4" />
@@ -393,7 +393,7 @@ export const AdminProducts = () => {
           ))}
         </div>
       ) : (
-        <div className="text-center py-12 text-white/50">
+        <div className="text-center py-12 text-gray-500 bg-white border border-gray-200 rounded-xl">
           <p>No products found</p>
         </div>
       )}

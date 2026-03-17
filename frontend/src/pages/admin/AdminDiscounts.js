@@ -104,28 +104,28 @@ export const AdminDiscounts = () => {
     <div>
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-bold mb-2">Discount Codes</h1>
-          <p className="text-white/50">Create and manage promotional codes</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Discount Codes</h1>
+          <p className="text-gray-500">Create and manage promotional codes</p>
         </div>
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
           <DialogTrigger asChild>
-            <Button className="bg-[#00F0FF] text-black font-bold" data-testid="add-discount-btn">
+            <Button className="bg-purple-600 hover:bg-purple-700 text-white font-bold" data-testid="add-discount-btn">
               <Plus className="w-4 h-4 mr-2" />
               Add Discount
             </Button>
           </DialogTrigger>
-          <DialogContent className="bg-[#0a0a0a] border-white/10">
+          <DialogContent className="bg-white border-gray-200">
             <DialogHeader>
-              <DialogTitle>Create Discount Code</DialogTitle>
+              <DialogTitle className="text-gray-900">Create Discount Code</DialogTitle>
             </DialogHeader>
             <form onSubmit={handleSubmit} className="space-y-4 mt-4">
               <div className="space-y-2">
-                <Label>Code</Label>
+                <Label className="text-gray-700">Code</Label>
                 <Input
                   value={formData.code}
                   onChange={(e) => setFormData({ ...formData, code: e.target.value.toUpperCase() })}
                   placeholder="SUMMER20"
-                  className="bg-black/50 border-white/10 uppercase"
+                  className="bg-gray-50 border-gray-200 text-gray-900 uppercase"
                   required
                   data-testid="discount-code-input"
                 />
@@ -133,13 +133,13 @@ export const AdminDiscounts = () => {
 
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label>Discount (%)</Label>
+                  <Label className="text-gray-700">Discount (%)</Label>
                   <Input
                     type="number"
                     value={formData.discount_percent}
                     onChange={(e) => setFormData({ ...formData, discount_percent: e.target.value })}
                     placeholder="20"
-                    className="bg-black/50 border-white/10"
+                    className="bg-gray-50 border-gray-200 text-gray-900"
                     required
                     min="1"
                     max="100"
@@ -147,13 +147,13 @@ export const AdminDiscounts = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label>Max Uses</Label>
+                  <Label className="text-gray-700">Max Uses</Label>
                   <Input
                     type="number"
                     value={formData.max_uses}
                     onChange={(e) => setFormData({ ...formData, max_uses: e.target.value })}
                     placeholder="100"
-                    className="bg-black/50 border-white/10"
+                    className="bg-gray-50 border-gray-200 text-gray-900"
                     required
                     min="1"
                     data-testid="max-uses-input"
@@ -162,19 +162,19 @@ export const AdminDiscounts = () => {
               </div>
 
               <div className="space-y-2">
-                <Label>Expiration Date (Optional)</Label>
+                <Label className="text-gray-700">Expiration Date (Optional)</Label>
                 <Popover>
                   <PopoverTrigger asChild>
                     <Button
                       variant="outline"
-                      className="w-full justify-start text-left font-normal bg-black/50 border-white/10"
+                      className="w-full justify-start text-left font-normal bg-gray-50 border-gray-200 text-gray-700"
                       data-testid="expiry-date-btn"
                     >
                       <CalendarIcon className="mr-2 h-4 w-4" />
                       {formData.expires_at ? format(formData.expires_at, 'PPP') : 'Pick a date'}
                     </Button>
                   </PopoverTrigger>
-                  <PopoverContent className="w-auto p-0 bg-[#0a0a0a] border-white/10">
+                  <PopoverContent className="w-auto p-0 bg-white border-gray-200">
                     <Calendar
                       mode="single"
                       selected={formData.expires_at}
@@ -187,10 +187,10 @@ export const AdminDiscounts = () => {
               </div>
 
               <div className="flex gap-4 pt-4">
-                <Button type="button" variant="outline" className="flex-1" onClick={() => setDialogOpen(false)}>
+                <Button type="button" variant="outline" className="flex-1 border-gray-200 text-gray-700" onClick={() => setDialogOpen(false)}>
                   Cancel
                 </Button>
-                <Button type="submit" disabled={submitting} className="flex-1 bg-[#00F0FF] text-black font-bold" data-testid="create-discount-btn">
+                <Button type="submit" disabled={submitting} className="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-bold" data-testid="create-discount-btn">
                   {submitting ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : null}
                   Create Discount
                 </Button>
@@ -203,11 +203,11 @@ export const AdminDiscounts = () => {
       {loading ? (
         <div className="space-y-4">
           {[...Array(3)].map((_, i) => (
-            <div key={i} className="p-4 bg-[#121212] border border-white/5 rounded-lg">
+            <div key={i} className="p-4 bg-white border border-gray-200 rounded-xl">
               <div className="flex items-center justify-between">
                 <div className="space-y-2">
-                  <div className="skeleton h-6 w-24" />
-                  <div className="skeleton h-4 w-32" />
+                  <div className="h-6 w-24 bg-gray-100 rounded animate-pulse" />
+                  <div className="h-4 w-32 bg-gray-100 rounded animate-pulse" />
                 </div>
               </div>
             </div>
@@ -216,16 +216,16 @@ export const AdminDiscounts = () => {
       ) : discounts.length > 0 ? (
         <div className="space-y-4">
           {discounts.map((discount) => (
-            <div key={discount.code} className="p-4 bg-[#121212] border border-white/5 rounded-lg" data-testid={`discount-row-${discount.code}`}>
+            <div key={discount.code} className="p-4 bg-white border border-gray-200 rounded-xl" data-testid={`discount-row-${discount.code}`}>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-[#7000FF]/20 text-[#7000FF] flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center">
                     <Tag className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg">{discount.code}</h3>
-                    <div className="flex items-center gap-4 text-sm text-white/50">
-                      <span className="text-[#00F0FF] font-bold">{discount.discount_percent}% off</span>
+                    <h3 className="font-bold text-lg text-gray-900">{discount.code}</h3>
+                    <div className="flex items-center gap-4 text-sm text-gray-500">
+                      <span className="text-purple-600 font-bold">{discount.discount_percent}% off</span>
                       <span>•</span>
                       <span>{discount.current_uses} / {discount.max_uses} uses</span>
                       {discount.expires_at && (
@@ -241,7 +241,7 @@ export const AdminDiscounts = () => {
                   variant="outline"
                   size="sm"
                   onClick={() => handleDelete(discount.code)}
-                  className="border-white/10 text-[#FF0055] hover:bg-[#FF0055]/10"
+                  className="border-gray-200 text-red-500 hover:bg-red-50"
                   data-testid={`delete-discount-${discount.code}`}
                 >
                   <Trash2 className="w-4 h-4" />
@@ -251,7 +251,7 @@ export const AdminDiscounts = () => {
           ))}
         </div>
       ) : (
-        <div className="text-center py-12 text-white/50">
+        <div className="text-center py-12 text-gray-500 bg-white border border-gray-200 rounded-xl">
           <Tag className="w-12 h-12 mx-auto mb-4 opacity-20" />
           <p>No discount codes yet</p>
         </div>

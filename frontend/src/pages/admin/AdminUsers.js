@@ -60,19 +60,19 @@ export const AdminUsers = () => {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">Users</h1>
-        <p className="text-white/50">Manage user accounts and permissions</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">Users</h1>
+        <p className="text-gray-500">Manage user accounts and permissions</p>
       </div>
 
       {loading ? (
         <div className="space-y-4">
           {[...Array(5)].map((_, i) => (
-            <div key={i} className="p-4 bg-[#121212] border border-white/5 rounded-lg">
+            <div key={i} className="p-4 bg-white border border-gray-200 rounded-xl">
               <div className="flex items-center gap-4">
-                <div className="skeleton w-10 h-10 rounded-full" />
+                <div className="w-10 h-10 rounded-full bg-gray-100 animate-pulse" />
                 <div className="flex-1 space-y-2">
-                  <div className="skeleton h-5 w-32" />
-                  <div className="skeleton h-4 w-48" />
+                  <div className="h-5 w-32 bg-gray-100 rounded animate-pulse" />
+                  <div className="h-4 w-48 bg-gray-100 rounded animate-pulse" />
                 </div>
               </div>
             </div>
@@ -81,40 +81,40 @@ export const AdminUsers = () => {
       ) : users.length > 0 ? (
         <div className="space-y-4">
           {users.map((user) => (
-            <div key={user.user_id} className="p-4 bg-[#121212] border border-white/5 rounded-lg" data-testid={`user-row-${user.user_id}`}>
+            <div key={user.user_id} className="p-4 bg-white border border-gray-200 rounded-xl" data-testid={`user-row-${user.user_id}`}>
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-[#7000FF] flex items-center justify-center overflow-hidden">
+                  <div className="w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center overflow-hidden">
                     {user.picture ? (
                       <img src={user.picture} alt={user.name} className="w-full h-full object-cover" />
                     ) : (
-                      <span className="font-bold">{user.name?.[0]?.toUpperCase()}</span>
+                      <span className="font-bold text-white">{user.name?.[0]?.toUpperCase()}</span>
                     )}
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <h3 className="font-bold">{user.name}</h3>
+                      <h3 className="font-bold text-gray-900">{user.name}</h3>
                       {user.is_admin && (
-                        <span className="px-2 py-0.5 text-xs font-bold bg-[#00F0FF]/20 text-[#00F0FF] rounded">
+                        <span className="px-2 py-0.5 text-xs font-bold bg-purple-100 text-purple-600 rounded">
                           Admin
                         </span>
                       )}
                       {user.user_id === currentUser?.user_id && (
-                        <span className="px-2 py-0.5 text-xs font-bold bg-white/10 text-white/50 rounded">
+                        <span className="px-2 py-0.5 text-xs font-bold bg-gray-100 text-gray-500 rounded">
                           You
                         </span>
                       )}
                     </div>
-                    <p className="text-white/50 text-sm">{user.email}</p>
+                    <p className="text-gray-500 text-sm">{user.email}</p>
                   </div>
                 </div>
                 
                 <div className="flex items-center gap-4">
                   <div className="flex items-center gap-2">
-                    <Shield className={`w-4 h-4 ${user.is_admin ? 'text-[#00F0FF]' : 'text-white/30'}`} />
-                    <span className="text-sm text-white/50">Admin</span>
+                    <Shield className={`w-4 h-4 ${user.is_admin ? 'text-purple-600' : 'text-gray-300'}`} />
+                    <span className="text-sm text-gray-500">Admin</span>
                     {updatingUser === user.user_id ? (
-                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <Loader2 className="w-4 h-4 animate-spin text-purple-600" />
                     ) : (
                       <Switch
                         checked={user.is_admin}
@@ -130,7 +130,7 @@ export const AdminUsers = () => {
           ))}
         </div>
       ) : (
-        <div className="text-center py-12 text-white/50">
+        <div className="text-center py-12 text-gray-500 bg-white border border-gray-200 rounded-xl">
           <Users className="w-12 h-12 mx-auto mb-4 opacity-20" />
           <p>No users found</p>
         </div>

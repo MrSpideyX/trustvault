@@ -113,7 +113,6 @@ export const ProductDetail = () => {
       setReviewText('');
       setReviewRating(5);
       
-      // Refresh reviews
       const reviewsRes = await axios.get(`${API}/reviews/${productId}`);
       setReviews(reviewsRes.data);
     } catch (error) {
@@ -128,7 +127,7 @@ export const ProductDetail = () => {
       <Star
         key={i}
         className={`w-5 h-5 cursor-pointer transition-colors ${
-          i < rating ? 'text-[#FFD600] fill-[#FFD600]' : 'text-white/20 hover:text-[#FFD600]/50'
+          i < rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300 hover:text-yellow-300'
         }`}
         onClick={interactive ? () => onClick(i + 1) : undefined}
       />
@@ -137,28 +136,28 @@ export const ProductDetail = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-[#00F0FF]" />
+      <div className="min-h-screen flex items-center justify-center bg-white">
+        <Loader2 className="w-8 h-8 animate-spin text-purple-600" />
       </div>
     );
   }
 
   if (!product) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center">
-        <h2 className="text-2xl font-bold mb-4">Product not found</h2>
+      <div className="min-h-screen flex flex-col items-center justify-center bg-white">
+        <h2 className="text-2xl font-bold mb-4 text-gray-900">Product not found</h2>
         <Link to="/products">
-          <Button className="bg-[#00F0FF] text-black">Back to Store</Button>
+          <Button className="bg-purple-600 hover:bg-purple-700 text-white">Back to Store</Button>
         </Link>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen py-24 md:py-32">
+    <div className="min-h-screen py-24 md:py-32 bg-white">
       <div className="max-w-[1400px] mx-auto px-4 md:px-8">
         {/* Back Button */}
-        <Link to="/products" className="inline-flex items-center gap-2 text-white/70 hover:text-white mb-8 transition-colors" data-testid="back-to-products">
+        <Link to="/products" className="inline-flex items-center gap-2 text-gray-500 hover:text-gray-900 mb-8 transition-colors" data-testid="back-to-products">
           <ArrowLeft className="w-4 h-4" />
           Back to Store
         </Link>
@@ -167,16 +166,16 @@ export const ProductDetail = () => {
           {/* Product Image */}
           <div className="relative">
             <div className="sticky top-28">
-              <div className="relative aspect-[4/5] rounded-lg overflow-hidden border border-white/10">
+              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-gray-200 shadow-lg">
                 <img
                   src={product.image_url || 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800'}
                   alt={product.name}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute top-4 left-4">
-                  <span className={`px-4 py-2 text-sm font-bold uppercase tracking-wider rounded ${
-                    product.platform === 'Steam' ? 'bg-[#1b2838]' : 
-                    product.platform === 'Epic' ? 'bg-[#2a2a2a]' : 'bg-white/20'
+                  <span className={`px-4 py-2 text-sm font-bold uppercase tracking-wider rounded-full ${
+                    product.platform === 'Steam' ? 'bg-[#1b2838] text-white' : 
+                    product.platform === 'Epic' ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-700'
                   }`}>
                     {product.platform}
                   </span>
@@ -188,10 +187,10 @@ export const ProductDetail = () => {
           {/* Product Details */}
           <div className="space-y-8">
             <div>
-              <p className="text-[#00F0FF] text-sm uppercase tracking-widest font-medium mb-2">
+              <p className="text-purple-600 text-sm uppercase tracking-widest font-medium mb-2">
                 {product.game_title}
               </p>
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4" data-testid="product-title">
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-gray-900" data-testid="product-title">
                 {product.name}
               </h1>
               
@@ -199,21 +198,21 @@ export const ProductDetail = () => {
               {product.review_count > 0 && (
                 <div className="flex items-center gap-3 mb-4">
                   <div className="flex">{renderStars(Math.round(product.avg_rating))}</div>
-                  <span className="text-white/50">
+                  <span className="text-gray-500">
                     {product.avg_rating.toFixed(1)} ({product.review_count} reviews)
                   </span>
                 </div>
               )}
 
               {/* Price */}
-              <div className="text-4xl font-bold text-[#00F0FF]" data-testid="product-price">
+              <div className="text-4xl font-bold text-purple-600" data-testid="product-price">
                 {formatPrice(product.price_inr, product.price_usd)}
               </div>
             </div>
 
             {/* Stock Status */}
             <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold ${
-              product.stock > 0 ? 'bg-[#00FF94]/20 text-[#00FF94]' : 'bg-[#FF0055]/20 text-[#FF0055]'
+              product.stock > 0 ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-600'
             }`}>
               <Package className="w-4 h-4" />
               {product.stock > 0 ? `${product.stock} In Stock` : 'Out of Stock'}
@@ -221,19 +220,19 @@ export const ProductDetail = () => {
 
             {/* Description */}
             <div>
-              <h3 className="text-lg font-bold mb-3">Description</h3>
-              <p className="text-white/70 leading-relaxed">{product.description}</p>
+              <h3 className="text-lg font-bold mb-3 text-gray-900">Description</h3>
+              <p className="text-gray-600 leading-relaxed">{product.description}</p>
             </div>
 
             {/* Features */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="flex items-center gap-3 p-4 bg-[#0a0a0a] rounded-lg border border-white/5">
-                <Shield className="w-5 h-5 text-[#00F0FF]" />
-                <span className="text-sm">Secure Purchase</span>
+              <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <Shield className="w-5 h-5 text-purple-600" />
+                <span className="text-sm text-gray-700">Secure Purchase</span>
               </div>
-              <div className="flex items-center gap-3 p-4 bg-[#0a0a0a] rounded-lg border border-white/5">
-                <Clock className="w-5 h-5 text-[#00F0FF]" />
-                <span className="text-sm">24h Delivery</span>
+              <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-xl border border-gray-100">
+                <Clock className="w-5 h-5 text-purple-600" />
+                <span className="text-sm text-gray-700">24h Delivery</span>
               </div>
             </div>
 
@@ -242,7 +241,7 @@ export const ProductDetail = () => {
               <Button
                 onClick={handleAddToCart}
                 disabled={addingToCart || product.stock <= 0}
-                className="flex-1 btn-skew bg-[#00F0FF] text-black h-14 font-bold uppercase tracking-wider disabled:opacity-50"
+                className="flex-1 bg-purple-600 hover:bg-purple-700 text-white h-14 font-bold uppercase tracking-wider rounded-full disabled:opacity-50"
                 data-testid="add-to-cart-btn"
               >
                 <span className="flex items-center justify-center gap-2">
@@ -259,7 +258,7 @@ export const ProductDetail = () => {
               <Button
                 onClick={handleWishlist}
                 variant="outline"
-                className={`h-14 px-6 border-white/20 ${isWishlisted ? 'bg-[#FF0055]/20 text-[#FF0055] border-[#FF0055]' : ''}`}
+                className={`h-14 px-6 border-gray-300 rounded-full ${isWishlisted ? 'bg-red-50 text-red-500 border-red-300' : 'text-gray-700'}`}
                 data-testid="wishlist-btn"
               >
                 <Heart className={`w-5 h-5 ${isWishlisted ? 'fill-current' : ''}`} />
@@ -269,33 +268,33 @@ export const ProductDetail = () => {
         </div>
 
         {/* Reviews Section */}
-        <div className="mt-24 border-t border-white/10 pt-12">
-          <h2 className="text-3xl font-bold mb-8">Customer Reviews</h2>
+        <div className="mt-24 border-t border-gray-200 pt-12">
+          <h2 className="text-3xl font-bold mb-8 text-gray-900">Customer Reviews</h2>
           
           {/* Review Form */}
           {user && (
-            <form onSubmit={handleSubmitReview} className="mb-12 p-6 bg-[#0a0a0a] rounded-lg border border-white/5">
-              <h3 className="text-lg font-bold mb-4">Write a Review</h3>
+            <form onSubmit={handleSubmitReview} className="mb-12 p-6 bg-gray-50 rounded-xl border border-gray-100">
+              <h3 className="text-lg font-bold mb-4 text-gray-900">Write a Review</h3>
               <div className="mb-4">
-                <label className="block text-sm text-white/70 mb-2">Rating</label>
+                <label className="block text-sm text-gray-600 mb-2">Rating</label>
                 <div className="flex gap-1">
                   {renderStars(reviewRating, true, setReviewRating)}
                 </div>
               </div>
               <div className="mb-4">
-                <label className="block text-sm text-white/70 mb-2">Your Review</label>
+                <label className="block text-sm text-gray-600 mb-2">Your Review</label>
                 <Textarea
                   value={reviewText}
                   onChange={(e) => setReviewText(e.target.value)}
                   placeholder="Share your experience..."
-                  className="bg-black/50 border-white/10 min-h-[100px]"
+                  className="bg-white border-gray-300 min-h-[100px] text-gray-900 placeholder:text-gray-400"
                   data-testid="review-textarea"
                 />
               </div>
               <Button
                 type="submit"
                 disabled={submittingReview || !reviewText.trim()}
-                className="bg-[#00F0FF] text-black font-bold"
+                className="bg-purple-600 hover:bg-purple-700 text-white font-bold"
                 data-testid="submit-review-btn"
               >
                 {submittingReview ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : null}
@@ -308,24 +307,24 @@ export const ProductDetail = () => {
           {reviews.length > 0 ? (
             <div className="space-y-6">
               {reviews.map((review) => (
-                <div key={review.review_id} className="p-6 bg-[#0a0a0a] rounded-lg border border-white/5">
+                <div key={review.review_id} className="p-6 bg-gray-50 rounded-xl border border-gray-100">
                   <div className="flex items-start justify-between mb-4">
                     <div>
-                      <p className="font-bold">{review.user_name}</p>
+                      <p className="font-bold text-gray-900">{review.user_name}</p>
                       <div className="flex gap-1 mt-1">
                         {renderStars(review.rating)}
                       </div>
                     </div>
-                    <span className="text-sm text-white/50">
+                    <span className="text-sm text-gray-500">
                       {new Date(review.created_at).toLocaleDateString()}
                     </span>
                   </div>
-                  <p className="text-white/70">{review.comment}</p>
+                  <p className="text-gray-600">{review.comment}</p>
                 </div>
               ))}
             </div>
           ) : (
-            <div className="text-center py-12 text-white/50">
+            <div className="text-center py-12 text-gray-500">
               <Star className="w-12 h-12 mx-auto mb-4 opacity-20" />
               <p>No reviews yet. Be the first to review this product!</p>
             </div>

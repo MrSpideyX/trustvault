@@ -55,25 +55,25 @@ export const AdminLayout = ({ children }) => {
   };
 
   return (
-    <div className="min-h-screen bg-[#050505]">
+    <div className="min-h-screen bg-gray-50">
       {/* Mobile Header */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-[#0a0a0a] border-b border-white/5 z-50 flex items-center justify-between px-4">
+      <div className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-white border-b border-gray-200 z-50 flex items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2">
           <img 
             src="https://customer-assets.emergentagent.com/job_gaming-hub-471/artifacts/xqaigfjd_trustvault%20logo.png" 
             alt="Trust Vault" 
             className="h-8 w-auto object-contain"
           />
-          <span className="font-bold">Admin</span>
+          <span className="font-bold text-purple-600">Admin</span>
         </Link>
-        <button onClick={() => setSidebarOpen(!sidebarOpen)} className="p-2">
+        <button onClick={() => setSidebarOpen(!sidebarOpen)} className="p-2 text-gray-600">
           {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
 
       {/* Sidebar */}
-      <aside className={`fixed top-0 left-0 h-full w-64 bg-[#0a0a0a] border-r border-white/5 z-40 transform transition-transform lg:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
-        <div className="p-6 border-b border-white/5 hidden lg:block">
+      <aside className={`fixed top-0 left-0 h-full w-64 bg-white border-r border-gray-200 z-40 transform transition-transform lg:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+        <div className="p-6 border-b border-gray-200 hidden lg:block">
           <Link to="/" className="flex items-center gap-3">
             <img 
               src="https://customer-assets.emergentagent.com/job_gaming-hub-471/artifacts/xqaigfjd_trustvault%20logo.png" 
@@ -81,8 +81,8 @@ export const AdminLayout = ({ children }) => {
               className="h-12 w-auto object-contain"
             />
             <div>
-              <span className="font-bold block bg-gradient-to-r from-[#FFD700] to-[#FFA500] bg-clip-text text-transparent">TRUST VAULT</span>
-              <span className="text-xs text-white/50">Admin Panel</span>
+              <span className="font-bold block bg-gradient-to-r from-purple-600 to-purple-800 bg-clip-text text-transparent">TRUST VAULT</span>
+              <span className="text-xs text-gray-500">Admin Panel</span>
             </div>
           </Link>
         </div>
@@ -95,8 +95,8 @@ export const AdminLayout = ({ children }) => {
               onClick={() => setSidebarOpen(false)}
               className={`flex items-center gap-3 px-4 py-3 rounded-lg mb-1 transition-colors ${
                 isActive(item.href)
-                  ? 'bg-[#00F0FF]/10 text-[#00F0FF] border-l-2 border-[#00F0FF]'
-                  : 'text-white/70 hover:text-white hover:bg-white/5'
+                  ? 'bg-purple-50 text-purple-600 border-l-2 border-purple-600'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
               }`}
               data-testid={`admin-nav-${item.label.toLowerCase()}`}
             >
@@ -106,20 +106,20 @@ export const AdminLayout = ({ children }) => {
           ))}
         </nav>
 
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-white/5">
+        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-200">
           <div className="flex items-center gap-3 px-4 py-3 mb-2">
-            <div className="w-8 h-8 rounded-full bg-[#7000FF] flex items-center justify-center">
-              <span className="text-sm font-bold">{user?.name?.[0]?.toUpperCase()}</span>
+            <div className="w-8 h-8 rounded-full bg-purple-600 flex items-center justify-center">
+              <span className="text-sm font-bold text-white">{user?.name?.[0]?.toUpperCase()}</span>
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium truncate">{user?.name}</p>
-              <p className="text-xs text-white/50 truncate">{user?.email}</p>
+              <p className="text-sm font-medium text-gray-900 truncate">{user?.name}</p>
+              <p className="text-xs text-gray-500 truncate">{user?.email}</p>
             </div>
           </div>
           <Button
             onClick={handleLogout}
             variant="ghost"
-            className="w-full justify-start text-white/70 hover:text-white"
+            className="w-full justify-start text-gray-600 hover:text-gray-900 hover:bg-gray-50"
           >
             <LogOut className="w-4 h-4 mr-2" />
             Logout
@@ -137,7 +137,7 @@ export const AdminLayout = ({ children }) => {
       {/* Mobile Overlay */}
       {sidebarOpen && (
         <div 
-          className="fixed inset-0 bg-black/50 z-30 lg:hidden"
+          className="fixed inset-0 bg-black/20 z-30 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
       )}
@@ -172,26 +172,26 @@ export const AdminDashboard = () => {
   }, [token]);
 
   const statCards = stats ? [
-    { label: 'Total Products', value: stats.total_products, icon: <Package className="w-6 h-6" />, color: 'text-[#00F0FF]' },
-    { label: 'Total Orders', value: stats.total_orders, icon: <ShoppingCart className="w-6 h-6" />, color: 'text-[#7000FF]' },
-    { label: 'Completed Orders', value: stats.completed_orders, icon: <BarChart3 className="w-6 h-6" />, color: 'text-[#00FF94]' },
-    { label: 'Total Users', value: stats.total_users, icon: <Users className="w-6 h-6" />, color: 'text-[#FFD600]' },
+    { label: 'Total Products', value: stats.total_products, icon: <Package className="w-6 h-6" />, color: 'text-purple-600 bg-purple-100' },
+    { label: 'Total Orders', value: stats.total_orders, icon: <ShoppingCart className="w-6 h-6" />, color: 'text-blue-600 bg-blue-100' },
+    { label: 'Completed Orders', value: stats.completed_orders, icon: <BarChart3 className="w-6 h-6" />, color: 'text-green-600 bg-green-100' },
+    { label: 'Total Users', value: stats.total_users, icon: <Users className="w-6 h-6" />, color: 'text-orange-600 bg-orange-100' },
   ] : [];
 
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">Dashboard</h1>
-        <p className="text-white/50">Overview of your store performance</p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">Dashboard</h1>
+        <p className="text-gray-500">Overview of your store performance</p>
       </div>
 
       {loading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {[...Array(4)].map((_, i) => (
-            <div key={i} className="p-6 bg-[#121212] border border-white/5 rounded-lg">
-              <div className="skeleton h-12 w-12 rounded-lg mb-4" />
-              <div className="skeleton h-8 w-20 mb-2" />
-              <div className="skeleton h-4 w-24" />
+            <div key={i} className="p-6 bg-white border border-gray-200 rounded-xl">
+              <div className="h-12 w-12 rounded-lg bg-gray-100 mb-4 animate-pulse" />
+              <div className="h-8 w-20 bg-gray-100 rounded mb-2 animate-pulse" />
+              <div className="h-4 w-24 bg-gray-100 rounded animate-pulse" />
             </div>
           ))}
         </div>
@@ -199,12 +199,12 @@ export const AdminDashboard = () => {
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
             {statCards.map((stat, index) => (
-              <div key={index} className="p-6 bg-[#121212] border border-white/5 rounded-lg">
-                <div className={`w-12 h-12 rounded-lg bg-white/5 ${stat.color} flex items-center justify-center mb-4`}>
+              <div key={index} className="p-6 bg-white border border-gray-200 rounded-xl">
+                <div className={`w-12 h-12 rounded-lg ${stat.color} flex items-center justify-center mb-4`}>
                   {stat.icon}
                 </div>
-                <p className="text-3xl font-bold mb-1">{stat.value}</p>
-                <p className="text-white/50 text-sm">{stat.label}</p>
+                <p className="text-3xl font-bold text-gray-900 mb-1">{stat.value}</p>
+                <p className="text-gray-500 text-sm">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -212,15 +212,15 @@ export const AdminDashboard = () => {
           {/* Revenue Section */}
           {stats && (
             <div className="grid md:grid-cols-2 gap-4">
-              <div className="p-6 bg-[#121212] border border-white/5 rounded-lg">
-                <h3 className="text-lg font-bold mb-4">Revenue (INR)</h3>
-                <p className="text-4xl font-bold text-[#00F0FF]">
+              <div className="p-6 bg-white border border-gray-200 rounded-xl">
+                <h3 className="text-lg font-bold text-gray-900 mb-4">Revenue (INR)</h3>
+                <p className="text-4xl font-bold text-purple-600">
                   ₹{stats.total_revenue_inr.toLocaleString('en-IN')}
                 </p>
               </div>
-              <div className="p-6 bg-[#121212] border border-white/5 rounded-lg">
-                <h3 className="text-lg font-bold mb-4">Revenue (USD)</h3>
-                <p className="text-4xl font-bold text-[#00F0FF]">
+              <div className="p-6 bg-white border border-gray-200 rounded-xl">
+                <h3 className="text-lg font-bold text-gray-900 mb-4">Revenue (USD)</h3>
+                <p className="text-4xl font-bold text-purple-600">
                   ${stats.total_revenue_usd.toFixed(2)}
                 </p>
               </div>
@@ -231,17 +231,17 @@ export const AdminDashboard = () => {
 
       {/* Quick Links */}
       <div className="mt-8 grid md:grid-cols-3 gap-4">
-        <Link to="/admin/products" className="p-4 bg-[#121212] border border-white/5 rounded-lg hover:border-white/10 transition-colors flex items-center justify-between">
-          <span className="font-medium">Manage Products</span>
-          <ChevronRight className="w-4 h-4" />
+        <Link to="/admin/products" className="p-4 bg-white border border-gray-200 rounded-xl hover:border-purple-300 hover:shadow-md transition-all flex items-center justify-between">
+          <span className="font-medium text-gray-900">Manage Products</span>
+          <ChevronRight className="w-4 h-4 text-gray-400" />
         </Link>
-        <Link to="/admin/orders" className="p-4 bg-[#121212] border border-white/5 rounded-lg hover:border-white/10 transition-colors flex items-center justify-between">
-          <span className="font-medium">View Orders</span>
-          <ChevronRight className="w-4 h-4" />
+        <Link to="/admin/orders" className="p-4 bg-white border border-gray-200 rounded-xl hover:border-purple-300 hover:shadow-md transition-all flex items-center justify-between">
+          <span className="font-medium text-gray-900">View Orders</span>
+          <ChevronRight className="w-4 h-4 text-gray-400" />
         </Link>
-        <Link to="/admin/discounts" className="p-4 bg-[#121212] border border-white/5 rounded-lg hover:border-white/10 transition-colors flex items-center justify-between">
-          <span className="font-medium">Manage Discounts</span>
-          <ChevronRight className="w-4 h-4" />
+        <Link to="/admin/discounts" className="p-4 bg-white border border-gray-200 rounded-xl hover:border-purple-300 hover:shadow-md transition-all flex items-center justify-between">
+          <span className="font-medium text-gray-900">Manage Discounts</span>
+          <ChevronRight className="w-4 h-4 text-gray-400" />
         </Link>
       </div>
     </div>

@@ -117,24 +117,24 @@ export const FAQ = () => {
   })).filter(category => category.questions.length > 0);
 
   return (
-    <div className="min-h-screen py-24 md:py-32">
+    <div className="min-h-screen py-24 md:py-32 bg-gray-50">
       <div className="max-w-[900px] mx-auto px-4 md:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <p className="text-[#00F0FF] text-sm uppercase tracking-widest font-medium mb-4">Help Center</p>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">FREQUENTLY ASKED QUESTIONS</h1>
-          <p className="text-white/50 max-w-xl mx-auto mb-8">
+          <p className="text-purple-600 text-sm uppercase tracking-widest font-medium mb-4">Help Center</p>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-gray-900">FREQUENTLY ASKED QUESTIONS</h1>
+          <p className="text-gray-500 max-w-xl mx-auto mb-8">
             Find answers to common questions about Trust Vault, payments, delivery, and more.
           </p>
 
           {/* Search */}
           <div className="relative max-w-md mx-auto">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/30" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
             <Input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search questions..."
-              className="pl-12 bg-[#0a0a0a] border-white/10 h-14 text-lg"
+              className="pl-12 bg-white border-gray-300 h-14 text-lg text-gray-900 placeholder:text-gray-400"
               data-testid="faq-search"
             />
           </div>
@@ -143,31 +143,31 @@ export const FAQ = () => {
         {/* FAQ Categories */}
         <div className="space-y-8">
           {filteredFaq.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="bg-[#0a0a0a] border border-white/5 rounded-lg overflow-hidden">
+            <div key={categoryIndex} className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
               {/* Category Header */}
-              <div className="flex items-center gap-3 p-4 border-b border-white/5 bg-white/[0.02]">
-                <div className="w-10 h-10 rounded-lg bg-[#00F0FF]/10 text-[#00F0FF] flex items-center justify-center">
+              <div className="flex items-center gap-3 p-4 border-b border-gray-100 bg-gray-50">
+                <div className="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center">
                   {category.icon}
                 </div>
-                <h2 className="font-bold text-lg">{category.category}</h2>
+                <h2 className="font-bold text-lg text-gray-900">{category.category}</h2>
               </div>
 
               {/* Questions */}
-              <div className="divide-y divide-white/5">
+              <div className="divide-y divide-gray-100">
                 {category.questions.map((item, questionIndex) => {
                   const isOpen = openItems[`${categoryIndex}-${questionIndex}`];
                   return (
                     <div key={questionIndex}>
                       <button
                         onClick={() => toggleItem(categoryIndex, questionIndex)}
-                        className="w-full p-4 flex items-center justify-between text-left hover:bg-white/[0.02] transition-colors"
+                        className="w-full p-4 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
                         data-testid={`faq-question-${categoryIndex}-${questionIndex}`}
                       >
-                        <span className="font-medium pr-4">{item.q}</span>
-                        <ChevronDown className={`w-5 h-5 flex-shrink-0 text-white/50 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+                        <span className="font-medium pr-4 text-gray-900">{item.q}</span>
+                        <ChevronDown className={`w-5 h-5 flex-shrink-0 text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
                       </button>
                       {isOpen && (
-                        <div className="px-4 pb-4 text-white/70 leading-relaxed">
+                        <div className="px-4 pb-4 text-gray-600 leading-relaxed">
                           {item.a}
                         </div>
                       )}
@@ -180,10 +180,10 @@ export const FAQ = () => {
         </div>
 
         {/* Still Need Help */}
-        <div className="mt-12 text-center p-8 bg-gradient-to-r from-[#00F0FF]/10 to-[#7000FF]/10 rounded-lg border border-white/5">
-          <h3 className="text-xl font-bold mb-2">Still have questions?</h3>
-          <p className="text-white/50 mb-4">Can't find what you're looking for? Our support team is here to help.</p>
-          <a href="/contact" className="inline-flex items-center gap-2 text-[#00F0FF] hover:underline font-medium">
+        <div className="mt-12 text-center p-8 bg-gradient-to-r from-purple-50 to-purple-100 rounded-xl border border-purple-200">
+          <h3 className="text-xl font-bold mb-2 text-gray-900">Still have questions?</h3>
+          <p className="text-gray-600 mb-4">Can't find what you're looking for? Our support team is here to help.</p>
+          <a href="/contact" className="inline-flex items-center gap-2 text-purple-600 hover:underline font-medium">
             Contact Support →
           </a>
         </div>

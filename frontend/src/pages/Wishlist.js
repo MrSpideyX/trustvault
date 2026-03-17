@@ -38,35 +38,35 @@ export const Wishlist = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <Loader2 className="w-8 h-8 animate-spin text-[#00F0FF]" />
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <Loader2 className="w-8 h-8 animate-spin text-purple-600" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen py-24 md:py-32">
+    <div className="min-h-screen bg-gray-50 py-24 md:py-32">
       <div className="max-w-[1400px] mx-auto px-4 md:px-8">
         <div className="mb-12">
-          <p className="text-[#00F0FF] text-sm uppercase tracking-widest font-medium mb-4">Account</p>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight">MY WISHLIST</h1>
+          <p className="text-purple-600 text-sm uppercase tracking-widest font-medium mb-4">Account</p>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900">MY WISHLIST</h1>
         </div>
 
         {wishlistItems.length === 0 ? (
-          <div className="text-center py-24">
-            <div className="w-24 h-24 rounded-full bg-white/5 flex items-center justify-center mx-auto mb-6">
-              <Heart className="w-10 h-10 text-white/20" />
+          <div className="text-center py-24 bg-white rounded-xl border border-gray-200">
+            <div className="w-24 h-24 rounded-full bg-gray-100 flex items-center justify-center mx-auto mb-6">
+              <Heart className="w-10 h-10 text-gray-400" />
             </div>
-            <h2 className="text-2xl font-bold mb-2">Your wishlist is empty</h2>
-            <p className="text-white/50 mb-6">Save items you love for later</p>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Your wishlist is empty</h2>
+            <p className="text-gray-500 mb-6">Save items you love for later</p>
             <Link to="/products">
-              <Button className="btn-skew bg-[#00F0FF] text-black font-bold">
+              <Button className="bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-full px-6">
                 <span>Browse Products</span>
               </Button>
             </Link>
           </div>
         ) : (
-          <div className="product-grid">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
             {wishlistItems.map((product) => (
               <ProductCard 
                 key={product.product_id} 
